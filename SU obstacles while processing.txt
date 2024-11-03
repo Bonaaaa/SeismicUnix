@@ -1,0 +1,10 @@
+#solving .su files can't be processed
+if you found:
+"surange: fgettr.c: no data on first trace"
+or
+"surange: fgettr.c: bad first header"
+it may caused by Endianness of the dataset. Most of dataset already compatible to little endian, but if you working on old sample segy from a very old computer, probably you need to convert it to xdr format. Do it with:
+"try suoldtonew < file.su > file.new.su"
+if it not help, try 
+"suswapbytes < file.su > file.fix.su"
+for further information about the function you can type the function (suxxxxx) into the terminal.
